@@ -1,0 +1,1 @@
+Um app para Android e IOS de conversão de moedas com atualização em tempo real utilizado a Api hgbrasil.com para estudos
