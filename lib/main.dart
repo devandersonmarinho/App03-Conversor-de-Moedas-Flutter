@@ -18,8 +18,7 @@ void main() async {
           focusedBorder:
               OutlineInputBorder(borderSide: BorderSide(color: Colors.amber)),
           hintStyle: TextStyle(color: Colors.amber),
-        )
-    ),
+        )),
   ));
 }
 
@@ -68,7 +67,7 @@ class _HomeState extends State<Home> {
                   dolar = snapshot.data["results"]["currencies"]["USD"]["buy"];
                   euro = snapshot.data["results"]["currencies"]["EUR"]["buy"];
                   return SingleChildScrollView(
-                    padding:  EdgeInsets.all(10.0) ,
+                    padding: EdgeInsets.all(10.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
@@ -77,41 +76,11 @@ class _HomeState extends State<Home> {
                           size: 150.0,
                           color: Colors.amber,
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: "Reais",
-                            labelStyle: TextStyle(color: Colors.amber),
-                            border: OutlineInputBorder(),
-                            prefixText: "R\$",
-                          ),
-                          style: TextStyle(
-                            color: Colors.amber
-                          ),
-                        ),
+                        buildTextField("Reais", "R\$"),
                         Divider(),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: "Dólares",
-                            labelStyle: TextStyle(color: Colors.amber),
-                            border: OutlineInputBorder(),
-                            prefixText: "US\$",
-                          ),
-                          style: TextStyle(
-                            color: Colors.amber
-                          ),
-                        ),
+                        buildTextField("Dólares", "US\$"),
                         Divider(),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: "Euros",
-                            labelStyle: TextStyle(color: Colors.amber),
-                            border: OutlineInputBorder(),
-                            prefixText: "€",
-                          ),
-                          style: TextStyle(
-                            color: Colors.amber
-                          ),
-                        ),
+                        buildTextField("Euros", "€"),
                       ],
                     ),
                   );
@@ -120,4 +89,16 @@ class _HomeState extends State<Home> {
           }),
     );
   }
+}
+
+Widget buildTextField(String label, String prefix) {
+  return TextField(
+    decoration: InputDecoration(
+      labelText: label,
+      labelStyle: TextStyle(color: Colors.amber),
+      border: OutlineInputBorder(),
+      prefixText: prefix,
+    ),
+    style: TextStyle(color: Colors.amber),
+  );
 }
